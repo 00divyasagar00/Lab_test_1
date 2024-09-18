@@ -1,0 +1,62 @@
+import numpy as np
+import matplotlib as mp
+import matplotlib.pyplot as plt
+
+temp=np.array([[30,32,32,29,28,27,26],
+      [35,34,36,33,32,31,30],
+      [25,26,27,28,29,30,31],
+      [22,23,24,25,26,27,28]])  
+     
+for i in range(0,4):
+    tavg=np.average(temp[i,:])
+    print("Average for city ",i+1," : ", tavg)
+    
+print(" ")
+
+for i in range(0,4):
+    tmax=np.max(temp[i:])
+    tmin=np.min(temp[i:])
+    print("Maximum temperature for city ",i+1," : ", tmax)
+    print(" Minimum temperature for city ",i+1," : ", tmin)
+    
+print(" ")
+    
+def calc_avg():
+
+    for i in range(0,7):
+        tavg_day=np.average(temp[:,i])
+        print("Average for day ",i+1," : ", tavg_day)
+        
+    
+print(calc_avg())
+    
+for i in range(0,4):
+    tmax=np.max(temp[i:])
+    tmin=np.min(temp[i:])
+    rang=tmax-tmin
+    print("Range for week : ",i+1, rang)
+    
+y=[1,2,3,4]
+for i in range(0,4):
+    x=temp[:,i]
+    plt.plot(y,x)
+
+plt.xlabel("City")
+plt.ylabel("temp")
+plt.show()
+
+y=[1,2,3,4]
+for i in range(0,4):
+    x=temp[:,i]
+    plt.bar(y,x)
+    
+plt.xlabel("City")
+plt.ylabel("temp")
+
+plt.show()
+
+
+
+
+
+    
